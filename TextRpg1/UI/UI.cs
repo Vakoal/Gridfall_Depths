@@ -10,7 +10,10 @@ namespace TextRpg1.UI
 {
     internal class UI
     {
-        static int LocationChoice(int neighborsCount)
+        static int LocationChoice<T>(List<T> inputList, string message)
+        {
+            Console.WriteLine(message);
+            foreach (T inputItem in inputList)
         {
             int neighborIndex = -1;
             while (!int.TryParse(Console.ReadLine(), out neighborIndex) || !(neighborIndex > 0 && neighborIndex <= neighborsCount))
