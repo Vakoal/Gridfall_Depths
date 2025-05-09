@@ -5,47 +5,93 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TextRpg1.Creatures.Character;
+using TextRpg1.Items;
+using TextRpg1.Locations;
 
 namespace TextRpg1.UI
 {
-    internal class UI
+    internal static class UI
     {
-        static int LocationChoice<T>(List<T> inputList, string message)
+        public static List<(string, ConsoleColor)> MessagesStack = [];
+        public static int ShowMenu<T>(List<T> inputList, string? message = null, List<string>? additionalMenuItems = null)
         {
+            if(message != null)
             Console.WriteLine(message);
-            foreach (T inputItem in inputList)
-        {
-            int neighborIndex = -1;
-            while (!int.TryParse(Console.ReadLine(), out neighborIndex) || !(neighborIndex > 0 && neighborIndex <= neighborsCount))
-            {
-                Console.WriteLine("Invalid value. Enter location number:");
-            }
-            return neighborIndex - 1;
-        }
-
-        public static CycleMode MenuChoice(Character hero, List<CycleMode> menuActions)
-        {
-            Console.WriteLine("Choose your next action");
 
             int menuItemNumber = 1;
-            foreach(CycleMode action in menuActions)
+            foreach (T inputItem in inputList)
             {
-                Console.WriteLine($"{menuItemNumber}) {action}");
+                if (inputItem is Armor armor)
+                {
+                    Console.Write($"{menuItemNumber}) ");
+                    armor.DisplayColored();
+                }
+                else if (inputItem is Weapon weapon)
+                {
+                    Console.Write($"{menuItemNumber}) ");
+                    weapon.DisplayColored();
+                }
+
+                else Console.WriteLine($"{menuItemNumber}) {inputItem}");
+
                 menuItemNumber++;
             }
-
-            string menuItemChoice = Console.ReadLine();
-            while (menuItemChoice == null || !Regex.IsMatch(menuItemChoice, "^[1-4]$"))
+            if (additionalMenuItems != null)
             {
-                Console.WriteLine("Invalid input. Enter a number of menu item.");
+                foreach (string additionalMenuItem in additionalMenuItems)
+                {
+                    Console.WriteLine($"{menuItemNumber}) {additionalMenuItem}");
+                    menuItemNumber++;
+                }
             }
 
-            int result = int.Parse(menuItemChoice);
-            if (menuActions[result-1] == CycleMode.LocationChange)
+            int additionalMenuItemsCount = additionalMenuItems is null ? 0 : additionalMenuItems.Count;
+            int userChoice = 0;
+            while (!int.TryParse(Console.ReadLine(), out userChoice) || userChoice < 1 || userChoice > (inputList.Count + additionalMenuItemsCount))
             {
-
+                Console.WriteLine($"Invalid value. Enter number from 1 to {inputList.Count + additionalMenuItemsCount}:");
             }
 
+            return userChoice;
+        }
+        public static void ShowStatusInfo(Character hero)
+        {
+            string info = $"""
+            HP: {hero.Health}/{hero.MaxHealth}
+            Hunger: {hero.Hunger}
+            Thirst: {hero.Thirst}
+            Current location: {hero.CurrentLocation}
+            """;
+
+            Console.Clear();
+            Console.WriteLine(info);
+
+
+            Console.Write("Equipped weapon: ");
+            if (hero.Equipment["Weapon"] is Weapon weapon)
+                weapon.DisplayColored(false);
+            else Console.WriteLine();
+
+            Console.Write("Equipped armor: ");
+            if (hero.Equipment["Armor"] is Armor armor)
+                armor.DisplayColored(false);
+            else Console.WriteLine();
+
+            Console.WriteLine(new string('-', Console.WindowWidth - 1));
+
+            if (MessagesStack.Count != 0)
+            {
+                Console.WriteLine();
+                foreach ((string text, ConsoleColor color) message in MessagesStack)
+                {
+                    Console.ForegroundColor = message.color;
+                    Console.WriteLine(message.text);
+                    Console.ResetColor();
+                }
+
+                MessagesStack.Clear();
+            }
+            Console.WriteLine();
         }
     }
 }

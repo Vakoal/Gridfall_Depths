@@ -1,4 +1,5 @@
-﻿using TextRpg1.Creatures.Character;
+﻿using System;
+using TextRpg1.Creatures.Character;
 
 namespace TextRpg1.Creatures.Character;
 
@@ -61,6 +62,10 @@ internal class PrimaryAttributes
         }
     }
 
+    public double GetAverage()
+    {
+        return (Strength + Agility + Endurance + Intelligence + Perception + Willpower) / 6;
+    }
     public void ShowInfo()
     {
         Console.WriteLine($"Strength: {Strength}");
