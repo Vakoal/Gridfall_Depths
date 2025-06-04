@@ -1,10 +1,28 @@
-﻿using TextRpg1.Creatures.Character;
-using TextRpg1.Locations;
+﻿using Newtonsoft.Json;
+using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Locations;
 
-namespace TextRpg1.Creatures.Enemies
+namespace Gridfall_Depths.Creatures.Enemies
 {
     internal class Rat : Enemy
     {
+        public override double Damage
+        {
+            get
+            {
+                return _damage + PrimaryAttributes.Strength + PrimaryAttributes.Agility / 2 + PrimaryAttributes.Intelligence / 3;
+            }
+            set
+            {
+                _damage = value;
+            }
+        }
+
+        [JsonConstructor]
+        public Rat()
+        {
+
+        }
         public Rat(Location homeLocation) : base(homeLocation)
         {
             PrimaryAttributes.Strength = 1;
@@ -14,12 +32,31 @@ namespace TextRpg1.Creatures.Enemies
             PrimaryAttributes.Perception = 12;
             PrimaryAttributes.Willpower = 1;
 
+            Health = MaxHealth;
+
             RarityEffects();
         }
     }
 
     internal class MutatedRat : Rat
     {
+        public override double Damage
+        {
+            get
+            {
+                return _damage + PrimaryAttributes.Strength + PrimaryAttributes.Agility / 2 + PrimaryAttributes.Intelligence / 3;
+            }
+            set
+            {
+                _damage = value;
+            }
+        }
+
+        [JsonConstructor]
+        public MutatedRat()
+        {
+
+        }
         public MutatedRat(Location homeLocation) : base(homeLocation)
         {
             PrimaryAttributes.Strength = 3;
@@ -28,6 +65,8 @@ namespace TextRpg1.Creatures.Enemies
             PrimaryAttributes.Intelligence = 4;
             PrimaryAttributes.Perception = 12;
             PrimaryAttributes.Willpower = 2;
+
+            Health = MaxHealth;
 
             RarityEffects();
         }
