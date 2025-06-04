@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextRpg1.Items;
+﻿using Gridfall_Depths.Items;
 
-namespace TextRpg1
+namespace Gridfall_Depths
 {
     internal static class Randomizer
     {

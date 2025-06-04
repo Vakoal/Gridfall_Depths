@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System.Reflection;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Items;
-using TextRpg1.Locations;
-using static TextRpg1.Randomizer;
+using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Locations;
+using static Gridfall_Depths.Randomizer;
 
-namespace TextRpg1.Creatures.Enemies;
+namespace Gridfall_Depths.Creatures.Enemies;
 
 internal class Enemy : Creature
 {

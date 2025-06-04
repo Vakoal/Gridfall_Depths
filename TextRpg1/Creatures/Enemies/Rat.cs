@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Locations;
+using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Locations;
 
-namespace TextRpg1.Creatures.Enemies
+namespace Gridfall_Depths.Creatures.Enemies
 {
     internal class Rat : Enemy
     {

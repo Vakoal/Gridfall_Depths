@@ -1,15 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using TextRpg1.Creatures;
-using TextRpg1.Creatures.Character;
-using static TextRpg1.Randomizer;
+using Gridfall_Depths.Creatures.Character;
+using static Gridfall_Depths.Randomizer;
 
-namespace TextRpg1.Items
+namespace Gridfall_Depths.Items
 {
     internal class Item
     {
@@ -120,6 +114,39 @@ namespace TextRpg1.Items
             Console.ForegroundColor = RarityColor(ItemRarity);
             Console.Write($"{Name}");
             Console.ResetColor();
+        }
+        public static void ItemsTest()
+        {
+            List<Item> TestItems = new();
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(0.5));
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(1));
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(1.5));
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(2));
+
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(0.5));
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(1));
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(1.5));
+
+            for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(2));
+
+            foreach (Item i in TestItems)
+            {
+                if (i is Armor armor)
+                {
+                    armor.DisplayColored();
+                }
+                else if (i is Weapon weapon)
+                {
+                    weapon.DisplayColored();
+                }
+            }
+            Console.ReadLine();
         }
     }
 

@@ -1,13 +1,10 @@
-﻿
-using System.Linq;
-using System.Reflection;
-using TextRpg1.Creatures;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Creatures.Enemies;
-using TextRpg1.Items;
-using static TextRpg1.Randomizer;
+﻿using System.Reflection;
+using Gridfall_Depths.Creatures;
+using Gridfall_Depths.Creatures.Enemies;
+using Gridfall_Depths.Items;
+using static Gridfall_Depths.Randomizer;
 
-namespace TextRpg1.Locations;
+namespace Gridfall_Depths.Locations;
 
 internal class Location
 {

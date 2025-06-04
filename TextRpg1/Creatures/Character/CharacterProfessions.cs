@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace TextRpg1.Creatures.Character;
+namespace Gridfall_Depths.Creatures.Character;
 
 internal class CharacterProfessions
 {

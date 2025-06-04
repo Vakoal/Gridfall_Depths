@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Locations;
+using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Locations;
 
-namespace TextRpg1.Creatures
+namespace Gridfall_Depths.Creatures
 {
     internal class NPC : Creature
     {

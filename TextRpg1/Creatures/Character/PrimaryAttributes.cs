@@ -1,7 +1,4 @@
-﻿using System;
-using TextRpg1.Creatures.Character;
-
-namespace TextRpg1.Creatures.Character;
+﻿namespace Gridfall_Depths.Creatures.Character;
 
 internal class PrimaryAttributes
 {

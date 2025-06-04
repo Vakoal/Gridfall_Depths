@@ -1,48 +1,13 @@
-﻿using TextRpg1;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Items;
-using TextRpg1.Locations;
-using static TextRpg1.UI.UI;
+﻿using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Locations;
+using static Gridfall_Depths.UI.UI;
 
 Console.ResetColor();
 
-int gameModeChoice = ShowMenu<string>(["New game", "Continue", "Items test"]);
+int gameModeChoice = ShowMenu<string>(["New game", "Continue"]);
 
 Character hero;
 
-if (gameModeChoice == 3)
-{
-    List<Item> TestItems = new();
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(0.5));
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(1));
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(1.5));
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Weapon>(2));
-
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(0.5));
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(1));
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(1.5));
-
-    for (int i = 0; i < 10; i++) TestItems.Add(Randomizer.GenerateRandomItem<Armor>(2));
-
-    foreach (Item i in TestItems)
-    {
-        if (i is Armor armor)
-        {
-            armor.DisplayColored();
-        }
-        else if (i is Weapon weapon)
-        {
-            weapon.DisplayColored();
-        }
-    }
-    Console.ReadLine();
-}
 
 if (gameModeChoice == 2) hero = Character.Load();
 

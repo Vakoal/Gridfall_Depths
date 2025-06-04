@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Items;
-using TextRpg1.Locations;
+﻿using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Items;
 
-namespace TextRpg1.UI
+namespace Gridfall_Depths.UI
 {
     internal static class UI
     {

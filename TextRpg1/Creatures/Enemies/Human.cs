@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextRpg1.Locations;
+using Gridfall_Depths.Locations;
 
-namespace TextRpg1.Creatures.Enemies
+namespace Gridfall_Depths.Creatures.Enemies
 {
     internal class Bandit : Enemy
     {

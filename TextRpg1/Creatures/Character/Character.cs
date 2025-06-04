@@ -1,14 +1,13 @@
-﻿namespace TextRpg1.Creatures.Character;
+﻿namespace Gridfall_Depths.Creatures.Character;
 
 using System;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using Newtonsoft.Json;
-using TextRpg1.Creatures;
-using TextRpg1.Creatures.Enemies;
-using TextRpg1.Items;
-using TextRpg1.Locations;
-using static TextRpg1.UI.UI;
+using Gridfall_Depths.Creatures;
+using Gridfall_Depths.Creatures.Enemies;
+using Gridfall_Depths.Items;
+using Gridfall_Depths.Locations;
+using static Gridfall_Depths.UI.UI;
 using static Randomizer;
 
 internal class Character : Creature

@@ -1,10 +1,9 @@
-﻿namespace TextRpg1.Creatures;
+﻿namespace Gridfall_Depths.Creatures;
 
-using System.Reflection;
-using TextRpg1.Creatures.Character;
-using TextRpg1.Items;
-using TextRpg1.Locations;
-using static TextRpg1.UI.UI;
+using Gridfall_Depths.Creatures.Character;
+using Gridfall_Depths.Items;
+using Gridfall_Depths.Locations;
+using static Gridfall_Depths.UI.UI;
 using static Randomizer;
 using Newtonsoft.Json;
 

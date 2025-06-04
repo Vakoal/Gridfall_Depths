@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRpg1.Items
+namespace Gridfall_Depths.Items
 {
     internal class Medicine: Item
     {

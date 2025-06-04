@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static TextRpg1.Randomizer;
+using static Gridfall_Depths.Randomizer;
 
-namespace TextRpg1.Items
+namespace Gridfall_Depths.Items
 {
     internal class Food : Item
     {
